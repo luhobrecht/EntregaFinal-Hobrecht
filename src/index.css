@@ -1,7 +1,7 @@
 #root {
-  font-family: Verdana, Tahoma, sans-serif;
   margin: 0;
   padding: 0;
+  font-family: 'Courier New', Courier, monospace;
 }
 
 .navbar {
@@ -25,6 +25,13 @@
   margin: 0px 5px 0px 5px;
 }
 
+.products-but{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 0px 50px 0px 5px;
+}
+
 button {
   border: 1px solid #89FCB3; 
   padding: 10px 10px;
@@ -35,6 +42,11 @@ button {
 
 .buttons-navbar:hover{
   background-color: #b1fcb3
+}
+
+.buttons-navbar{
+  color:#3D3D3D;
+  text-transform: uppercase;
 }
 
 .cart-widget{
@@ -50,4 +62,5 @@ i {
 .list-container{
   background-color: #FFFFF7;
   padding: 50px;
+  text-align: center;
 }

@@ -1,5 +1,3 @@
-
-
 export const ItemListContainer = ({greeting}) => {
     
   return (
