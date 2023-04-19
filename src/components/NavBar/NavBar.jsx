@@ -1,31 +1,35 @@
 import { Container, Nav, Navbar, NavDropdown } from "react-bootstrap"
+import { Link, NavLink } from "react-router-dom"
 import { BrandIcon } from "../BrandIcon/BrandIcon"
 import { CartWidget } from "../CartWidget/CartWidget"
 
 
 export const NavBar = () => {
+
+  
+
   return (
     <Navbar collapseOnSelect expand="lg" bg='#89FCB3'>
       <Container>
-        <Navbar.Brand href="#home">
+        <Link className='brand-icon' to='/'>
           <BrandIcon />
-        </Navbar.Brand>
+        </Link>
         <Navbar.Toggle aria-controls="responsive-navbar-nav" />
           <Navbar.Collapse id="responsive-navbar-nav">
-            <Nav className="me-auto">
-              <NavDropdown title="Catálogo" id="collasible-nav-dropdown">
-                <NavDropdown.Item href="#hats">Gorras</NavDropdown.Item>
-                <NavDropdown.Item href="#shirts">Camisetas</NavDropdown.Item>
-                <NavDropdown.Item href="#hoodies">Hoodies</NavDropdown.Item>
-                <NavDropdown.Item href="#accesories">Accesorios</NavDropdown.Item>
+            <Nav className="me-auto custom-nav">
+              <NavDropdown title="Catálogo" id="collasible-nav-dropdown" className='dropdown'>
+                <NavLink to='/categories/gameofthrones' className='got'>Game of Thrones</NavLink>
+                <NavLink to='/categories/spiderman' className='spiderman'>Spiderman</NavLink>
+                <NavLink to='/categories/superman' className='superman'>Superman</NavLink>
+                <NavLink to='/categories/thebigbangtheory' className='bigbang'>The Big Bang Theory</NavLink>
               </NavDropdown>
-              <Nav.Link href="#contact">Contacto</Nav.Link>
-              <Nav.Link href="#about-us">Sobre Nosotros</Nav.Link>
+              <Link to="contact" className="contact" >Contacto</Link>
+              <Link to="about-us"className="about-us" >Sobre Nosotros</Link>
             </Nav>
             <Nav>
-              <Nav.Link eventKey={2} href="#cart-widget">
+              <Link to='/cart' className="text-decoration-none">
                 <CartWidget />
-              </Nav.Link>
+              </Link>
             </Nav>
           </Navbar.Collapse>
         </Container>

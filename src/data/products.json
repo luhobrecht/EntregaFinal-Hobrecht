@@ -1,0 +1,154 @@
+[
+    {
+            "id": 1,
+            "name": "Gorra GoT",
+            "price": "800",
+            "description": "Gorra de Game of Thrones",
+            "category": "Game Of Thrones",
+            "colors": "azul",
+            "size": "xl",
+            "img": "gorraGoT1.png",
+            "stock": 10
+    },
+    {
+            "id": 2,
+            "nombre": "Mate GoT",
+            "price": "1200",
+            "description": "Mate de Game of Thrones",
+            "category": "Game Of Thrones",
+            "colors": "azul",
+            "size": "xl",
+            "img": "mateGoT.png",
+            "stock": 10
+    },
+    {
+            "id": 3,
+            "name": "Remera BigBang",
+            "price": "1000",
+            "description": "Remera de The Big Bang Theory",
+            "category": "The Big Bang Theory",
+            "colors": "azul",
+            "size": "xl",
+            "img": "remera-big-bang.png",
+            "stock": 10
+    },
+    {
+            "id": 4,
+            "name": "Gorra BigBang",
+            "price": "800",
+            "description": "Gorra de The Big Bang Theory",
+            "category": "The Big Bang Theory",
+            "colors": "azul",
+            "size": "xl",
+            "img": "gorraBigBang.png",
+            "stock": 10
+    },
+    {
+            "id": 5,
+            "name": "Mate BigBang",
+            "price": "1200",
+            "description": "Mate de The Big Bang Theory",
+            "category": "The Big Bang Theory",
+            "colors": "azul",
+            "size": "xl",
+            "img": "mateBigBang.png",
+            "stock": 10
+    },
+    {
+            "id": 6,
+            "name": "Remera Spiderman",
+            "price": "1000",
+            "description": "Remera de Spiderman",
+            "category": "Spiderman",
+            "colors": "azul",
+            "size": "xl",
+            "img": "remeraSpiderman.png",
+            "stock": 10
+    },
+    {
+            "id": 7,
+            "name": "Gorra Spiderman",
+            "price": "800",
+            "description": "Gorra de Spiderman",
+            "category": "Spiderman",
+            "colors": "azul",
+            "size": "xl",
+            "img": "gorraSpiderman.png",
+            "stock": 10
+    },
+    {
+            "id": 8,
+            "name": "Mate Spiderman",
+            "price": "1200",
+            "description": "Mate de Spiderman",
+            "category": "Spiderman",
+            "colors": "azul",
+            "size": "xl",
+            "img": "mateSpiderman.png",
+            "stock": 10
+    },
+    {
+            "id": 9,
+            "name": "Remera Superman",
+            "description": "Remera de Superman",
+            "price": "1000",
+            "category": "Remeras",
+            "colors": [
+                    "black",
+                    "white",
+                    "grey",
+                    "Red",
+                    "blue"
+            ],
+            "size": [
+                    "xs",
+                    "s",
+                    "m",
+                    "l",
+                    "xl"
+            ],
+            "img": "remeraSuperman.png",
+            "stock": 10
+    },
+    {
+            "id": 10,
+            "name": "Gorra Superman",
+            "price": "800",
+            "description": "Gorra de Superman",
+            "category": "Superman",
+            "colors": "azul",
+            "size": "xl",
+            "img": "gorraSuperman.png",
+            "stock": 10
+    },
+    {
+            "id": 11,
+            "name": "Mate Superman",
+            "price": "1200",
+            "description": "Mate de Superman",
+            "category": "Superman",
+            "colors": "azul",
+            "size": "xl",
+            "img": "mateSuperman.png",
+            "stock": 10
+    },
+    {
+            "id": 12,
+            "name": "RemeraGOT",
+            "description": "Remera de Game of Thrones",
+            "category": "Remeras",
+            "colors": [
+                    "Black",
+                    "grey",
+                    "blue"
+            ],
+            "size": [
+                    "xs",
+                    "m",
+                    "xl"
+            ],
+            "price": "1000",
+            "stock": 10,
+            "img": "product-1647377634941.png"
+    }
+]
