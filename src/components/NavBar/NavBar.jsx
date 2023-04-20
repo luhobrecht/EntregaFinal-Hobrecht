@@ -18,7 +18,7 @@ export const NavBar = () => {
               <NavDropdown title="Catálogo" id="collasible-nav-dropdown" className='dropdown'>
                 <NavLink to='/' className='all'>Ver todo</NavLink>
                 <NavLink to='/category/series' className='series'>Series</NavLink>
-                <NavLink to='/category/films' className='movies'>Films</NavLink>
+                <NavLink to='/category/films' className='movies'>Películas</NavLink>
                 <NavLink to='/category/videogames' className='videogames'>Videojuegos</NavLink>
               </NavDropdown>
               <Link to="contact" className="contact" >Contacto</Link>
