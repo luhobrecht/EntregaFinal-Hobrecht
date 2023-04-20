@@ -4,9 +4,6 @@ import { mFetch } from "../../utils/mFetch";
 import { Filter } from "../Filter/Filter";
 
 
-
-
-
  export const ItemListContainer = ({greeting}) => {
     const [products, setProducts] = useState([]);
     const [isLoading, setIsLoading] = useState(true);
@@ -49,7 +46,7 @@ import { Filter } from "../Filter/Filter";
                     { filterState === ''
                         ? products.map(({ id, img, price, description }) => 
                                 <div key={id} className="card w-25">
-                                    <Link to={`/detail/${id}`}> 
+                                    <Link to={`/item/${id}`}> 
                                     <div className="card-body">
                                         <img src={img} className="card-img-top" alt="imagen-card" />
                                         <h6> {description}</h6>
@@ -64,7 +61,7 @@ import { Filter } from "../Filter/Filter";
                         :
                         products.filter( product => product.name.toLowerCase().includes(filterState.toLowerCase())).map(({ id, img, price, description }) => 
                                 <div key={id} className="card w-25">
-                                    <Link to={`/detail/${id}`}> 
+                                    <Link to={`/item/${id}`}> 
                                     <div className="card-body">
                                         <img src={img} className="card-img-top" alt="imagen-card" />
                                         <h6> {description}</h6>

@@ -12,9 +12,8 @@ function GeeksApp() {
       <NavBar />
       <Routes>
       <Route path='/' element={<ItemListContainer greeting={greeting}/> } />
-      <Route path='/categories/:cid' element={<ItemListContainer /> } />
-      <Route path='/detail' element={<ItemDetailContainer /> } />
-      <Route path='/detail/:pid' element={<ItemDetailContainer />} />
+      <Route path='/category/:cid' element={<ItemListContainer /> } />
+      <Route path='/item/:pid' element={<ItemDetailContainer />} />
       <Route path='*' element={ <Navigate to='/' /> }/>
       </Routes>
       <Footer />
