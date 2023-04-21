@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { Link, useParams } from "react-router-dom";
 import { mFetch } from "../../utils/mFetch";
 import { Filter } from "../Filter/Filter";
+import { ItemList } from "../ItemList/ItemList";
 
 
  export const ItemListContainer = ({greeting}) => {
@@ -31,10 +32,9 @@ import { Filter } from "../Filter/Filter";
     }, [cid])
 
     const handleProductFiltered = ({filterState, handleFilterChange}) => (
-        <div className="container">
+        <div>
             <input className='search-bar' type='text' placeholder='¿Qué estás buscando?' value={filterState} onChange={handleFilterChange} />
-
-            <div className="d-flex flex-wrap cards">
+            <div>
             { isLoading ? 
                 <>
                 <p>
@@ -44,41 +44,35 @@ import { Filter } from "../Filter/Filter";
             :
                 <>
                     { filterState === ''
-                        ? products.map(({ id, img, price, description }) => 
-                                <div key={id} className="card w-25">
-                                    <Link to={`/item/${id}`}> 
-                                    <div className="card-body">
-                                        <img src={img} className="card-img-top" alt="imagen-card" />
-                                        <h6> {description}</h6>
-                                        <label>Precio: ${price}</label>
-                                    </div>
-                                    </Link>
-                                    <div className="card-footer">
-                                        <button className="btn btn-outline-dark">Agregar al carrito</button>
-                                    </div>
-                                </div>
-                        )
+                        ? 
+                        
+                        <ItemList />
+                        
                         :
-                        products.filter( product => product.name.toLowerCase().includes(filterState.toLowerCase())).map(({ id, img, price, description }) => 
-                                <div key={id} className="card w-25">
-                                    <Link to={`/item/${id}`}> 
-                                    <div className="card-body">
-                                        <img src={img} className="card-img-top" alt="imagen-card" />
-                                        <h6> {description}</h6>
-                                        <label>Precio: ${price}</label>
-                                    </div>
-                                    </Link>
-                                    <div className="card-footer">
-                                        <button className="btn btn-outline-dark">Agregar al carrito</button>
-                                    </div>
-                                </div>
-                        )
-                    }
+                        <div className="d-flex flex-wrap cards">
+                           { products.filter( product => product.description.toLowerCase().includes(filterState.toLowerCase())).map(({ id, img, price, description }) => 
+                                                    <div  key={id} className="card w-25">
+                                                        <div className="card-body">
+                                                            <Link to={`/item/${id}`}> 
+                                                                <img src={img} className="card-img-top" alt="imagen-card" />
+                                                            </Link>
+                                                            <h6> {description}</h6>
+                                                            <label>Precio: ${price}</label>
+                                                        </div>
+                                                        <div className="card-footer">
+                                                            <button className="btn btn-outline-dark">Agregar al carrito</button>
+                                                        </div>
+                                                    </div>
+                                            )
+                            }           
+                        </div>
+                    }       
                 
                 </>
 
             }
             </div>
+
         </div>
     )
 

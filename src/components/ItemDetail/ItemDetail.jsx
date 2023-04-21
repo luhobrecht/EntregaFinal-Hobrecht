@@ -40,8 +40,8 @@ export const ItemDetail = () => {
             </>
         :
           product.map(({ id, img, price, category, description,stock }) => 
-                        <div className="d-flex justify-content-center m-20">
-                          <div key={id} className="card w-25">
+                        <div key={id} className="d-flex justify-content-center m-20">
+                          <div  className="card w-25">
                               <div className="card-body">
                             <Link to={`/item/${id}`}> 
                                   <img src={img} className="card-img-top" alt="imagen-card" />

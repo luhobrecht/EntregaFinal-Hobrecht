@@ -247,7 +247,7 @@ let products = [
         "description": "Taza de Marvel",
         "category": "films",
         "colors": null,
-        "img": "/assets/products/marvel2.png",
+        "img": "/assets/products/marvel3.png",
         "stock": 20
     },
     {
@@ -257,7 +257,7 @@ let products = [
         "description": "Tote bag de Marvel",
         "category": "films",
         "colors": null ,
-        "img": "/assets/products/marvel3.png",
+        "img": "/assets/products/marvel2.png",
         "stock": 30
     },
     {
@@ -337,6 +337,6 @@ export const mFetch = () =>{
     return new Promise((res, rej)=>{
         setTimeout(()=>{
             res(products)
-        }, 1000)
+        }, 2000)
     }) 
 } 
