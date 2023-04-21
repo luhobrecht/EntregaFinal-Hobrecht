@@ -1,61 +1,22 @@
-import { useEffect, useState } from "react";
-import { Link, useParams } from "react-router-dom";
-import { mFetch } from "../../utils/mFetch";
+import { Link } from "react-router-dom";
 import { ItemCount } from "../ItemCount/ItemCount";
 
-export const ItemDetail = () => {
+export const ItemDetail = ({product: {id, description, price, img, stock}}) => { 
 
-  const [product, setProduct] = useState([]);
-  const [isLoading, setIsLoading] = useState(true);
-
-  const { pid } = useParams();
-  
-  useEffect(()=>{
-      if( !pid ) {
-          
-          mFetch()
-          .then( result => { 
-              setProduct(result)
-          })
-          .catch( error => console.log(error) )
-          .finally(()=> setIsLoading(false))   
-
-      } else {
-          mFetch()
-          .then( result => { 
-              setProduct(result.filter(product => product.id === pid) )
-          })
-          .catch( error => console.log(error) )
-          .finally(()=> setIsLoading(false))   
-      }
-  }, [pid])
-  
   return (
-    <div>
-        { isLoading ? 
-            <>
-            <p>
-            Cargando...
-            </p>
-            </>
-        :
-          product.map(({ id, img, price, category, description,stock }) => 
-                        <div key={id} className="d-flex justify-content-center m-20">
-                          <div  className="card w-25">
-                              <div className="card-body">
-                            <Link to={`/item/${id}`}> 
-                                  <img src={img} className="card-img-top" alt="imagen-card" />
-                            </Link>
-                                  <h6> {description}</h6>
-                                  <label>Precio: ${price}</label>
-                                  <br />
-                                  <label>En stock: { stock } </label>
-                              </div>
-                              <ItemCount />
-                          </div>                     
-                        </div>
-                      )
-        }
-    </div>
-  )
+          <div key={id} className="d-flex justify-content-center m-20">
+            <div  className="card w-25">
+                <div className="card-body">
+              <Link to={`/item/${id}`}> 
+                    <img src={img} className="card-img-top" alt="imagen-card" />
+              </Link>
+                    <h6> {description}</h6>
+                    <label>Precio: ${price}</label>
+                    <br />
+                    <label>En stock: { stock } </label>
+                </div>
+                <ItemCount />
+            </div>                     
+          </div>
+         )
 }

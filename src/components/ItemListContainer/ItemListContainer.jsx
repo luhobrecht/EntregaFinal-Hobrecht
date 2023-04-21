@@ -34,23 +34,19 @@ import { ItemList } from "../ItemList/ItemList";
     const handleProductFiltered = ({filterState, handleFilterChange}) => (
         <div>
             <input className='search-bar' type='text' placeholder='¿Qué estás buscando?' value={filterState} onChange={handleFilterChange} />
-            <div>
-            { isLoading ? 
-                <>
-                <p>
-                Cargando...
-                </p>
-                </>
-            :
-                <>
-                    { filterState === ''
-                        ? 
-                        
-                        <ItemList />
-                        
-                        :
-                        <div className="d-flex flex-wrap cards">
-                           { products.filter( product => product.description.toLowerCase().includes(filterState.toLowerCase())).map(({ id, img, price, description }) => 
+                <div>
+                { isLoading ? 
+                    <>
+                    <p>Cargando...</p>
+                    </>
+                :
+                    <>
+                        { filterState === ''
+                            ?  
+                            <ItemList products={products} />
+                            :
+                            <div className="d-flex flex-wrap cards">
+                            { products.filter( product => product.description.toLowerCase().includes(filterState.toLowerCase())).map(({ id, img, price, description }) => 
                                                     <div  key={id} className="card w-25">
                                                         <div className="card-body">
                                                             <Link to={`/item/${id}`}> 
@@ -64,15 +60,12 @@ import { ItemList } from "../ItemList/ItemList";
                                                         </div>
                                                     </div>
                                             )
-                            }           
-                        </div>
-                    }       
-                
-                </>
-
-            }
-            </div>
-
+                                }           
+                            </div>
+                        }
+                    </>
+                }
+                </div>
         </div>
     )
 

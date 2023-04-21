@@ -333,10 +333,11 @@ let products = [
 ]
 
 
-export const mFetch = () =>{
+export const mFetch = (id) =>{
     return new Promise((res, rej)=>{
         setTimeout(()=>{
-            res(products)
-        }, 2000)
+            res (!id ? products : products.find (product => product.id === id ))
+        }, 1000)
     }) 
 } 
+
