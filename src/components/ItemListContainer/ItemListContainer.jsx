@@ -4,6 +4,7 @@ import { mFetch } from "../../utils/mFetch";
 import { Filter } from "../Filter/Filter";
 import { ItemList } from "../ItemList/ItemList";
 import { Carousel } from "../Carousel/Carousel";
+import { ItemCount } from "../ItemCount/ItemCount";
 
 
 export const ItemListContainer = () => {
@@ -47,19 +48,21 @@ export const ItemListContainer = () => {
                         <ItemList products={products} />
                         :
                         <>
-                        { products.filter( product => product.description.toLowerCase().includes(filterState.toLowerCase())).map(({ id, img, price, description }) => 
-                                                <div  key={id} className="card">
+                        { products.filter( product => product.description.toLowerCase().includes(filterState.toLowerCase())).map(({ id, img, price, description, stock }) => 
+                                                  <div key={id} className="card text-center mb-2 mt-2">
                                                     <div className="card-body">
                                                         <Link to={`/item/${id}`}> 
-                                                            <img src={img} className="card-img-top" alt="imagen-card" />
+                                                            <img src={img} className="card-img-top mb-4" alt="imagen-card" />
                                                         </Link>
                                                         <h6> {description}</h6>
-                                                        <label>Precio: ${price}</label>
+                                                        <label>Precio: {price}€</label>
+                                                        <br/>
+                                                        <label>Stock: {stock}</label>
                                                     </div>
-                                                    <div className="card-footer">
-                                                        <button className="btn btn-outline-dark">Agregar al carrito</button>
+                                                    <div className='card-footer'>
+                                                        <ItemCount stock={stock} />
                                                     </div>
-                                                </div>
+                                                 </div>  
                                         )
                             }  
                         </>
