@@ -1,22 +1,10 @@
-import { Link } from "react-router-dom";
-import { ItemCount } from "../ItemCount/ItemCount";
+import { Item } from "../Item/Item";
 
-export const ItemDetail = ({product: {id, description, price, img, stock}}) => { 
+export const ItemDetail = ({product}) => { 
 
   return (
-          <div key={id} className="d-flex justify-content-center m-20">
-            <div  className="card w-25">
-                <div className="card-body">
-              <Link to={`/item/${id}`}> 
-                    <img src={img} className="card-img-top" alt="imagen-card" />
-              </Link>
-                    <h6> {description}</h6>
-                    <label>Precio: ${price}</label>
-                    <br />
-                    <label>En stock: { stock } </label>
-                </div>
-                <ItemCount />
-            </div>                     
-          </div>
-         )
-}
+        <div className="d-flex justify-content-center mt-5">
+          <Item key={product.id} product={product}/>
+        </div>
+        )}
+    

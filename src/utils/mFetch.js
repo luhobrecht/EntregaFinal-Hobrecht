@@ -8,7 +8,7 @@ let products = [
         "category": "series",
         "colors": null,
         "img": "/assets/products/got5.png",
-        "stock": 7
+        "stock": 0
     },
     {
         "id": '2',

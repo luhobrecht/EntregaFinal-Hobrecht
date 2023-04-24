@@ -3,78 +3,83 @@ import { Link, useParams } from "react-router-dom";
 import { mFetch } from "../../utils/mFetch";
 import { Filter } from "../Filter/Filter";
 import { ItemList } from "../ItemList/ItemList";
+import { Carousel } from "../Carousel/Carousel";
 
 
- export const ItemListContainer = ({greeting}) => {
-    const [products, setProducts] = useState([]);
-    const [isLoading, setIsLoading] = useState(true);
-
-    const { cid } = useParams();
+export const ItemListContainer = () => {
     
-    useEffect(()=>{
-        if( !cid ) {
-            
-            mFetch()
-            .then( result => { 
-                setProducts(result)
-            })
-            .catch( error => console.log(error) )
-            .finally(()=> setIsLoading(false))   
+  const [products, setProducts] = useState([]);
+  const [isLoading, setIsLoading] = useState(true);
 
-        } else {
-            mFetch()
-            .then( result => { 
-                setProducts(result.filter(products => products.category === cid) )
-            })
-            .catch( error => console.log(error) )
-            .finally(()=> setIsLoading(false))   
-        }
-    }, [cid])
+  const { cid } = useParams();
+  
+  useEffect(()=>{
+      if( !cid ) {     
+          mFetch()
+          .then( result => { 
+              setProducts( result )
+          })
+          .catch( error => console.log( error ))
+          .finally(() => setIsLoading( false ));   
 
-    const handleProductFiltered = ({filterState, handleFilterChange}) => (
-        <div>
-            <input className='search-bar' type='text' placeholder='¿Qué estás buscando?' value={filterState} onChange={handleFilterChange} />
-                <div>
-                { isLoading ? 
-                    <>
-                    <p>Cargando...</p>
-                    </>
-                :
-                    <>
-                        { filterState === ''
-                            ?  
-                            <ItemList products={products} />
-                            :
-                            <div className="d-flex flex-wrap cards">
-                            { products.filter( product => product.description.toLowerCase().includes(filterState.toLowerCase())).map(({ id, img, price, description }) => 
-                                                    <div  key={id} className="card w-25">
-                                                        <div className="card-body">
-                                                            <Link to={`/item/${id}`}> 
-                                                                <img src={img} className="card-img-top" alt="imagen-card" />
-                                                            </Link>
-                                                            <h6> {description}</h6>
-                                                            <label>Precio: ${price}</label>
-                                                        </div>
-                                                        <div className="card-footer">
-                                                            <button className="btn btn-outline-dark">Agregar al carrito</button>
-                                                        </div>
+      } else {
+          mFetch()
+          .then( result => { 
+              setProducts( result.filter ( products => products.category === cid))
+          })
+          .catch( error => console.log( error ) )
+          .finally(() => setIsLoading( false ))   
+      }
+  }, [cid])
+
+  const handleProductFiltered = ({ filterState, handleFilterChange }) => (
+      <div>
+          <input className='search-bar mt-5 mb-3 p-3 text-start'  type='text' placeholder='¿Qué estás buscando?' value={filterState} onChange={handleFilterChange} />
+        <div className="d-flex flex-wrap item-list">
+            { isLoading ? 
+                <>
+                <p>Cargando...</p>
+                </>
+            :
+                <>
+                    { filterState === ''
+                        ?  
+                        <ItemList products={products} />
+                        :
+                        <>
+                        { products.filter( product => product.description.toLowerCase().includes(filterState.toLowerCase())).map(({ id, img, price, description }) => 
+                                                <div  key={id} className="card">
+                                                    <div className="card-body">
+                                                        <Link to={`/item/${id}`}> 
+                                                            <img src={img} className="card-img-top" alt="imagen-card" />
+                                                        </Link>
+                                                        <h6> {description}</h6>
+                                                        <label>Precio: ${price}</label>
                                                     </div>
-                                            )
-                                }           
-                            </div>
-                        }
-                    </>
-                }
-                </div>
+                                                    <div className="card-footer">
+                                                        <button className="btn btn-outline-dark">Agregar al carrito</button>
+                                                    </div>
+                                                </div>
+                                        )
+                            }  
+                        </>
+                    }
+                </>
+            }
         </div>
-    )
+    </div>
+  )
 
-    
-    return (
-        <div className='container'>
-            <Filter >
-                { handleProductFiltered }
-            </Filter>       
-        </div>
-    )
+  
+  return (
+      <div>
+          <Carousel />
+          <div className='p-5 pt-1 m-5 mt-1'>
+          <Filter >
+              { handleProductFiltered }
+          </Filter>       
+
+          </div>
+      </div>
+  )
 }

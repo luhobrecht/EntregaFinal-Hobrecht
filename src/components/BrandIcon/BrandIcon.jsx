@@ -1,9 +1,8 @@
 
-
 export const BrandIcon = () => {
   return (
-    <>
-      <button><img className='brand-icon' src='/assets/Geeks.svg'/></button>
-    </>
+      <div >
+          <img className="me-5" width='100' height="50" src='/assets/geeks.svg'/>
+      </div>
   )
-}
+};
