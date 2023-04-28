@@ -2,9 +2,9 @@ import { useState } from 'react'
 
 export const useCounter = ( initial, stock ) => {
     
-    const [counter, setCounter] = useState( initial );
+    const [counter, setCounter] = useState( initial, stock );
 
-    const onAdd = () => {
+    const increment = () => {
         if (counter < stock ){
           setCounter( counter + 1)
         }
@@ -22,7 +22,7 @@ export const useCounter = ( initial, stock ) => {
 
   return {
     counter,
-    onAdd,
+    increment,
     decrement,
     // reset,
   }  

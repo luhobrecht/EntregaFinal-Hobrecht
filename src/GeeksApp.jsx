@@ -5,12 +5,15 @@ import { AboutUs } from './components/AboutUs/AboutUs'
 import { ItemListContainer } from './components/ItemListContainer/ItemListContainer'
 import { ItemDetailContainer } from './components/ItemDetailContainer/ItemDetailContainer';
 import { Footer } from './components/Footer/Footer';
+import { CartContextProvider } from './context/CartContext';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './index.css'
+import { CartContainer } from './components/CartContainer/CartContainer';
 import { CheckOut } from './components/CheckOut/CheckOut';
 
 function GeeksApp() {
   return (
+    <CartContextProvider>
     <Router>
       <NavBar /> 
       <Routes>
@@ -20,10 +23,12 @@ function GeeksApp() {
       <Route path='/category/:cid' element={<ItemListContainer /> } />
       <Route path='/item/:pid' element={<ItemDetailContainer />} />
       <Route path='*' element={ <Navigate to='/' /> }/>
-      <Route path='/cart' element={ <CheckOut />} />
+      <Route path='/cart' element={ <CartContainer />} />
+      <Route path='/checkout' element={ <CheckOut />} />
       </Routes>
       <Footer />
     </Router>
+    </CartContextProvider>
   )
 }
 

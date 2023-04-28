@@ -1,10 +1,12 @@
+import { useCartContext } from '../../context/CartContext';
 import { useCounter } from '../../hooks/useCounter';
 import { NavLink } from 'react-router-dom';
 
-export const ItemCount = ({stock}) => {
+export const ItemCount = ({stock, initial = 0, onAdd}) => {
+   
 
-    const {onAdd, decrement, counter } = useCounter(0, stock);
-
+    const {increment, decrement, counter } = useCounter(initial, stock, onAdd);
+    
   return (
     <>
         <div className='d-flex justify-content-center m-2'>
@@ -21,7 +23,7 @@ export const ItemCount = ({stock}) => {
           ?
           <button className='btn increment btn btn-secondary disabled'>+</button>
           :
-          <button className='btn increment btn btn-secondary' onClick={ onAdd }>+</button>
+          <button className='btn increment btn btn-secondary' onClick={ increment }>+</button>
         }
         </div>
         <hr/>
@@ -30,7 +32,7 @@ export const ItemCount = ({stock}) => {
           ?
           <NavLink to='/cart' className='btn btn-primary mb-1 disabled'>Agregar al carrito</NavLink>
           :
-          <NavLink to='/cart' className='btn btn-primary mb-1'>Agregar al carrito</NavLink>
+          <NavLink to='/cart' className='btn btn-primary mb-1' onClick={ () => { onAdd ( counter )}}>Agregar al carrito</NavLink>
         }
     </>
   )
