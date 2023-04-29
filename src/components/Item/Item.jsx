@@ -1,6 +1,5 @@
 import { Link } from 'react-router-dom';
-import { ItemCount } from '../ItemCount/ItemCount';
-import { useCartContext } from '../../context/CartContext';
+
 
 export const Item = ({product: {id, description, price, img, stock}}) => {
   return (
@@ -9,11 +8,12 @@ export const Item = ({product: {id, description, price, img, stock}}) => {
                               <Link to={`/item/${id}`}> 
                                     <img src={img} className="card-img-top mb-4" alt="imagen-card" />
                               </Link>
+                                </div>
+                              <div className='card-footer p-2'>
                                     <h6> {description}</h6>
                                     <label>Precio: {price}€</label>
-                                    <br/>
+                              </div>
                                     {/* <label>Stock: {stock}</label> */}
-                                </div>
     </div>  
   )
 };

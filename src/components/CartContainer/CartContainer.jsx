@@ -3,9 +3,11 @@ import { useCartContext } from "../../context/CartContext"
 
 export const CartContainer = () => {
     const {cartList,  clearCartList, deleteItem} = useCartContext();
-    console.log(cartList)
 
     return (
+        <>
+         { (cartList.length > 0 ) 
+         ?
         <div className="">
         <div className="m-5 align-items-center d-flex flex-wrap">
             {cartList.map (product => (
@@ -13,7 +15,7 @@ export const CartContainer = () => {
                     <div className="d-flex">
                     <img className="w-50 align-self-start m-2" src={product.img} alt="imagen"/>
                     <div className="d-flex flex-column align-items-start justify-content-center">
-                    <label className="ms-5">Precio: €{product.price} </label>
+                    <label className="ms-5">Precio: {product.price}€ </label>
                     <label className="ms-5 ">Cantidad: {product.quantity}</label>
                     </div>
                     </div>                   
@@ -38,5 +40,13 @@ export const CartContainer = () => {
 
             </div>
         </div>
+            :
+            <div className="container text-center">
+                <p className="m-5">
+                ¡El carrito de compras está vacío!   
+                </p>
+            </div>
+            }
+        </>
     )
 }
