@@ -1,4 +1,8 @@
-
+#root {
+  background-image: url(/public/assets/background-geeks.png);
+  background-repeat: no-repeat;
+  background-size: cover;
+}
 
 /* NAVBAR */
 
@@ -9,6 +13,10 @@ nav {
 
 .cart-widget {
   color:#3D3D3D;
+}
+
+.icon{
+  font-size: 20px;
 }
 
 #navbar-items {
@@ -54,11 +62,22 @@ nav {
   background-color: #3D3D3D;
 }
 
+/*CART */
+
+.total{
+  font-weight: 200;
+  width: 15%;
+  justify-content: space-between;
+  margin: 10;
+  padding: 0px;
+}
+
 /* FOOTER */
 
 footer {
   background-color: #3D3D3D;
   color:#FFFFF7;
+  height: max-content;
 }
 
 footer p {
@@ -78,10 +97,17 @@ footer h5{
   .card {
     width: 50%;
   }
+  .container-card{
+    width: 50%;
+  }
 }
 
 @media (min-width: 991px) { 
   .card {
     width: 25%;
   }
+  .container-card{
+    width: 25%;
+  }
 }
+

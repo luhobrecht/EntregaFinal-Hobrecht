@@ -1,8 +1,8 @@
 
 export const Footer = () => {
     return (
-      <footer  className="container-fluid">
-          <div className="row m-5 align-items-start">
+      <footer>
+          <div className="row m-5 mb-0 align-items-start">
               <div className="col-lg-4 p-3 mt-4">
                   <h5>Cuentas</h5>
                   <p>Mi cuenta</p>

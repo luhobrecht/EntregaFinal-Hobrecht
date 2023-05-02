@@ -30,9 +30,9 @@ export const ItemCount = ({stock, initial = 0, onAdd}) => {
         {
           (counter === 0 || stock === 0)
           ?
-          <NavLink to='/cart' className='btn btn-primary mb-1 disabled'>Agregar al carrito</NavLink>
+          <button to='/cart' className='btn btn-primary mb-1 disabled'>Agregar al carrito</button>
           :
-          <NavLink to='/cart' className='btn btn-primary mb-1' onClick={ () => { onAdd ( counter )}}>Agregar al carrito</NavLink>
+          <button to='/cart' className='btn btn-primary mb-1' onClick={ () => { onAdd ( counter )}}>Agregar al carrito</button>
         }
     </>
   )

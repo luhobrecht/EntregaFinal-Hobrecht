@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { ItemDetail } from "../ItemDetail/ItemDetail";
 import { mFetch } from "../../utils/mFetch";
 import { useParams } from "react-router-dom";
+import { Loading } from "../Loading/Loading";
 
 
 export const ItemDetailContainer = () => {  
@@ -20,7 +21,7 @@ export const ItemDetailContainer = () => {
   return (
     <>
     { isLoading ? 
-      <p>Cargando</p>
+      <Loading />
     :  
       <ItemDetail product={product}/>
     }
