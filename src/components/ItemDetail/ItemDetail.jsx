@@ -2,17 +2,25 @@ import { Link } from "react-router-dom";
 import { useCartContext } from "../../context/CartContext";
 import { Item } from "../Item/Item";
 import { ItemCount } from "../ItemCount/ItemCount";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 export const ItemDetail = ({product}) => { 
   const [isItem, setIsItem] = useState(false)
-  const {addToCart, isInCart} = useCartContext();
+  const {addToCart, isInCart, handleCartWidget} = useCartContext();
     
   const onAdd = ( quantity ) => {
     addToCart ({...product, quantity})
     isInCart( product.id, quantity)
     setIsItem(true);
   }
+
+  useEffect(() => {
+    handleCartWidget()
+
+}, [onAdd])
+
+console.log()
+
 
   return (
         <div className="d-flex flex-column align-items-center mt-5">

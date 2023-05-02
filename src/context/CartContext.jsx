@@ -40,16 +40,19 @@ export const CartContextProvider = ({children}) => {
     };
 
   
-    const isTotal = () => {
+    const handleTotal = () => {
     const total = cartList.reduce((acc, product) => acc + product.price * product.quantity, 0);
     setTotal(total);
     };
     
-    console.log(total)
-    // const handleCartWidget = () => {
-    //     const cartWidget = cartList.reduce((acc, product) => acc + product.quantity, 0);
-    //     setCartWidget(cartWidget);
-    // };
+    const handleCartWidget = () => {
+        if (cartList.length === 0) {
+            setCartWidget(0);
+        } else{
+            const cartWidget = cartList.reduce((acc, product) => acc + product.quantity, 0);
+            setCartWidget(cartWidget);
+        }
+    };
 
     
     return (
@@ -59,10 +62,10 @@ export const CartContextProvider = ({children}) => {
         clearCartList,
         deleteItem,
         isInCart,
-        isTotal,
+        handleTotal,
         total,
-        // cartWidget,
-        // handleCartWidget
+        cartWidget,
+        handleCartWidget
     }}>
         {children}
     </CartContext.Provider>

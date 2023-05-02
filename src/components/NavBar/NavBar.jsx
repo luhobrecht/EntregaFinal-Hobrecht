@@ -6,6 +6,7 @@ import { CartWidget } from "../CartWidget/CartWidget"
 
 export const NavBar = () => {
 
+
   return (
     <Navbar collapseOnSelect expand="lg" className="p-4 sticky-top">
       <Container>

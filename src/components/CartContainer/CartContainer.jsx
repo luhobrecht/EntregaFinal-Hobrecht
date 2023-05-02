@@ -1,19 +1,13 @@
 import { Link } from "react-router-dom";
 import { useCartContext } from "../../context/CartContext"
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 
 export const CartContainer = () => {
-    const {cartList,  clearCartList, deleteItem, total, isTotal} = useCartContext();
-
-    // useEffect(() => {   
-    //     const total = cartList.reduce((acc, product) => acc + product.price * product.quantity, 0);
-    //     setTotal(total);
-    // }, [cartList]);
+    const {cartList,  clearCartList, deleteItem, total, handleTotal, handleCartWidget, cartWidget} = useCartContext();
 
     useEffect(() => {
-        isTotal();
+        handleTotal();
     }, [cartList]);
-
 
 
     return (
