@@ -1,5 +1,5 @@
 # Geeks 🎮 
-<img src="/assets/geeks.svg" alt="Geeks logo" style=" width: 50%;"/>
+<img src="/assets/geeks.svg" alt="Geeks logo" style="width: 50%"/>
 
 Geeks es un sitio web de ecommerce dedicado a la venta de productos de merchandising de series, películas y videojuegos entre otros. 
 
