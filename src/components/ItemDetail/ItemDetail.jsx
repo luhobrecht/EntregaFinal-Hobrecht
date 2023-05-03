@@ -17,25 +17,23 @@ export const ItemDetail = ({product}) => {
   useEffect(() => {
     handleCartWidget()
 
-}, [onAdd])
-
-console.log()
-
+  }, [onAdd])
 
   return (
-        <div className="d-flex flex-column align-items-center mt-5">
-          <Item product={product}/>
-           <div className='card card-footer w-25'>
-            {
-              (isItem) ?
-                <>
-                  <Link to='/' className='btn btn-dark mb-1'>Seguir comprando</Link>
-                  <Link to='/cart' className='btn btn-success mb-1'>Terminar compra</Link>
-                </>
-              :
-                <ItemCount stock={ product.stock } onAdd={ onAdd }/>
-            }
-            </div>
+      <div className="d-flex flex-column align-items-center mt-5">
+        <Item product={product}/>
+        <div className='card card-footer w-25'>
+        {
+          (isItem) ?
+            <>
+              <Link to='/' className='btn btn-dark mb-1'>Seguir comprando</Link>
+              <Link to='/cart' className='btn btn-success mb-1'>Terminar compra</Link>
+            </>
+          :
+            <ItemCount stock={ product.stock } onAdd={ onAdd }/>
+        }
         </div>
-        )}
+      </div>
+  )
+};
     

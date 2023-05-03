@@ -32,14 +32,13 @@ export const CartContextProvider = ({children}) => {
             const updateQuantity = { 
                 ...cartList[product],
                 quantity: cartList[product].quantity + quantity
-                };
+            };
             const updatedCartList = [...cartList];
             updatedCartList[product]= updateQuantity;
             setCartList(updatedCartList);
-            } 
+        } 
     };
-
-  
+ 
     const handleTotal = () => {
     const total = cartList.reduce((acc, product) => acc + product.price * product.quantity, 0);
     setTotal(total);
@@ -54,20 +53,19 @@ export const CartContextProvider = ({children}) => {
         }
     };
 
-    
     return (
-    <CartContext.Provider value={{
-        cartList,
-        addToCart,
-        clearCartList,
-        deleteItem,
-        isInCart,
-        handleTotal,
-        total,
-        cartWidget,
-        handleCartWidget
-    }}>
-        {children}
-    </CartContext.Provider>
+        <CartContext.Provider value={{
+            cartList,
+            addToCart,
+            clearCartList,
+            deleteItem,
+            isInCart,
+            handleTotal,
+            total,
+            cartWidget,
+            handleCartWidget
+        }}>
+            {children}
+        </CartContext.Provider>
   )
 }
