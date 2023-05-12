@@ -9,27 +9,23 @@ export const NavBar = () => {
 
   return (
     <Navbar collapseOnSelect expand="lg" className="p-4 sticky-top">
-      <Container>
-        <Link className='' to='/'>
+        <Link className='ms-2' to='/'>
           <BrandIcon />
         </Link>
-        <Navbar.Toggle aria-controls="responsive-navbar-nav "  />
-        <Navbar.Collapse id="responsive-navbar-nav">
-          <Nav className="me-auto custom-nav">
-              <NavLink to='/' className='all text-decoration-none me-4' id='navbar-items'>Ver todo</NavLink>
-              <NavLink to='/category/series' className='series text-decoration-none me-4' id='navbar-items'>Series</NavLink>
-              <NavLink to='/category/films' className='movies text-decoration-none me-4' id='navbar-items'>Películas</NavLink>
-              <NavLink to='/category/videogames' className='videogames text-decoration-none me-4'  id='navbar-items'>Videojuegos</NavLink>
-            <Link to="contact" className="contact text-decoration-none me-4" id='navbar-items' >Contacto</Link>
-            <Link to="about-us"className="about-us text-decoration-none me-4" id='navbar-items' >Sobre Nosotros</Link>
-          </Nav>
-          <Nav>
-            <Link to='/cart' className="text-decoration-none">
-              <CartWidget />
-            </Link>
+        <Navbar.Toggle aria-controls="responsive-navbar-nav" />
+        <Navbar.Collapse id="responsive-navbar-nav" className="justify-content-around">
+          <Nav className="ms-5 nav nav-pills">
+            <NavLink to='/' className='nav-link all text-decoration-none me-4' id='navbar-items'>Ver todo</NavLink>
+            <NavLink to='/category/series' className='series nav-link text-decoration-none me-4' id='navbar-items'>Series</NavLink>
+            <NavLink to='/category/films' className='movies nav-link text-decoration-none me-4' id='navbar-items'>Películas</NavLink>
+            <NavLink to='/category/videogames' className='nav-link videogames text-decoration-none me-4'  id='navbar-items'>Videojuegos</NavLink>
+            <NavLink to="/contact" className="contact nav-link text-decoration-none me-4" id='navbar-items' >Contacto</NavLink>
+            <NavLink to="/about-us"className="about-us nav-link text-decoration-none me-4" id='navbar-items'>Sobre Nosotros</NavLink>
           </Nav>
         </Navbar.Collapse>
-      </Container>
+            <Link to='/cart' className="text-decoration-none cart">
+              <CartWidget />
+            </Link>
     </Navbar>
   )
 };

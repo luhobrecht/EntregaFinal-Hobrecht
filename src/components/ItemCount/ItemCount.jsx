@@ -1,12 +1,12 @@
 import { useCounter } from '../../hooks/useCounter';
 
-export const ItemCount = ({stock, initial = 0, onAdd}) => {
+export const ItemCount = ({stock, initial = 0, onAdd, color}) => {
    
-    const {increment, decrement, counter } = useCounter(initial, stock, onAdd);
+    const {increment, decrement, counter } = useCounter(initial, stock, onAdd, color);
     
     return (
       <>
-        <div className='d-flex justify-content-center m-2'>
+        <div className='d-flex justify-content-center m-1'>
           {
             (counter === 0) 
             ?
@@ -29,7 +29,7 @@ export const ItemCount = ({stock, initial = 0, onAdd}) => {
             ?
               <button to='/cart' className='btn btn-primary mb-1 disabled'>Agregar al carrito</button>
             :
-              <button to='/cart' className='btn btn-primary mb-1' onClick={ () => { onAdd ( counter )}}>Agregar al carrito</button>
+              <button to='/cart' className='btn btn-primary mb-2' onClick={ () => { onAdd ( counter, color )}}>Agregar al carrito</button>
           }
       </>
   )

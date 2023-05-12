@@ -8,13 +8,20 @@ export const CartContextProvider = ({children}) => {
     
     const [cartList, setCartList] = useState([]);
     const [total, setTotal] = useState(0);
-    const [cartWidget, setCartWidget] = useState(0);
 
     const addToCart = ( newProduct ) => {
-        setCartList ([
-            ...cartList,
-            newProduct
-        ])
+        
+        const product = cartList.findIndex(product => product.id === newProduct.id)
+        
+        if (product === -1) {
+            setCartList ([
+                ...cartList,
+                newProduct,
+            ])
+        } else {
+            cartList[product].quantity += newProduct.quantity;
+            setCartList([...cartList]);
+        }
     };
 
     const clearCartList = () => {
@@ -25,33 +32,13 @@ export const CartContextProvider = ({children}) => {
         const newCartList = cartList.filter(product => product.id !== id);
         setCartList(newCartList);
     };
-
-    const isInCart = (id, quantity) => {
-        const product = cartList.findIndex(product => product.id === id)
-        if (product !== -1) {  
-            const updateQuantity = { 
-                ...cartList[product],
-                quantity: cartList[product].quantity + quantity
-            };
-            const updatedCartList = [...cartList];
-            updatedCartList[product]= updateQuantity;
-            setCartList(updatedCartList);
-        } 
-    };
  
     const handleTotal = () => {
     const total = cartList.reduce((acc, product) => acc + product.price * product.quantity, 0);
     setTotal(total);
     };
     
-    const handleCartWidget = () => {
-        if (cartList.length === 0) {
-            setCartWidget(0);
-        } else{
-            const cartWidget = cartList.reduce((acc, product) => acc + product.quantity, 0);
-            setCartWidget(cartWidget);
-        }
-    };
+    const handleCartWidget = () => cartList.reduce((acc, product) => acc + product.quantity, 0);
 
     return (
         <CartContext.Provider value={{
@@ -59,10 +46,8 @@ export const CartContextProvider = ({children}) => {
             addToCart,
             clearCartList,
             deleteItem,
-            isInCart,
             handleTotal,
             total,
-            cartWidget,
             handleCartWidget
         }}>
             {children}

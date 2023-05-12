@@ -1,55 +1,42 @@
 import { Link } from "react-router-dom";
 import { useCartContext } from "../../context/CartContext"
 import { useEffect } from "react";
+import { addDoc, collection, getFirestore } from "firebase/firestore";
 
 export const CartContainer = () => {
-    const {cartList,  clearCartList, deleteItem, total, handleTotal, handleCartWidget, cartWidget} = useCartContext();
+    const {cartList,  clearCartList, deleteItem, total, handleTotal} = useCartContext();
 
     useEffect(() => {
         handleTotal();
     }, [cartList]);
+    
 
     return (
         <>
-        { (cartList.length > 0) 
+        { (cartList.length !== 0) 
         ?
         <div className="">
-            <div className="m-5 align-items-center d-flex flex-wrap">
+            <div className="cart-list m-5 align-items-center d-flex flex-column">
                 {cartList.map (product => (
-                    <div key={product.id} className="card w-50 p-2 container-card">
-                        <div className="d-flex">
-                            <img className="w-50 align-self-start m-2" src={product.img} alt="imagen"/>
-                                <div className="d-flex flex-column align-items-start justify-content-center">
-                                    <label className="ms-5">Precio: {product.price}€ </label>
-                                    <label className="ms-5 ">Cantidad: {product.quantity}</label>
-                                </div>
-                        </div>                   
-                        <button className="btn btn-secondary mt-4" onClick={() => deleteItem(product.id)}> Eliminar productos</button>
+                    <div key={product.id} className="cart-container alert alert-primary w-100 p-4 d-flex justify-content-around align-items-center">
+                            {/* <img className="product-image w-50 align-self-center m-2" src={product.img[0]} alt="imagen"/> */}
+                                    <div className="description">{product.description}</div>
+                                    <div className="price">Precio por unidad: {product.price}€ </div>
+                                    <div className="quantity">Cantidad: {product.quantity}</div>
+                                    <button className="delete btn btn-outline-secondary" onClick={() => deleteItem(product.id)}> Eliminar productos</button>                  
                     </div>
                 ))}
             </div>
-            <div className="d-flex justify-content-end me-5 pb-4">
-                <div className="total fs-4 alert alert-secondary d-flex">
-                    <b className="ms-4 align-self-center">TOTAL:</b> 
-                    <p className="me-4 align-self-center mb-0">€{ total }</p>
+            <div className="d-flex justify-content-center me-5 mb-5">
+                <div className="total-container fs-3 alert alert-secondary d-flex">
+                    <p className="total me-2 ">TOTAL: </p> 
+                    <p className="">€{ total }</p>
                 </div> 
             </div>
-            <div className='container d-flex justify-content-center'>
-                {
-                    (cartList.length > 0 ) 
-                    ?
-                        <div className="">
-                            <Link to='/' className="btn btn-dark text-decoration-none ms-5"> Seguir comprando </Link>
-                            <Link to='/' onClick={clearCartList} className="btn btn-danger ms-5">Vaciar Carrito</Link>
-                            <Link to='/checkout' className="btn btn-success ms-5">Finalizar Compra</Link>
-                        </div>
-                    :
-                        <div>
-                            <Link to='/' className="btn btn-success text-decoration-none ms-5 "> Seguir comprando </Link>
-                            <button onClick={clearCartList} className="btn btn-danger ms-5" hidden >Vaciar Carrito</button>
-                            <button className="btn btn-dark ms-5" hidden>Finalizar Compra</button>
-                        </div>
-                }
+            <div className='container d-flex justify-content-center'>    
+                <Link to='/' className="btn btn-outline-dark text-decoration-none ms-5"> Seguir comprando </Link>
+                <Link to='/' onClick={clearCartList} className="btn btn-outline-danger ms-5">Vaciar Carrito</Link>
+                <Link to='/checkout' className="btn btn-success ms-5">Finalizar Compra</Link>      
             </div>
         </div>
         :
