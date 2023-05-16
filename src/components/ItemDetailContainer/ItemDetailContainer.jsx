@@ -29,7 +29,7 @@ export const ItemDetailContainer = () => {
       :  
       <>
         {
-          (product.name === undefined)
+          (product.description === undefined)
           ?
             (
             <div className="container product-error d-flex flex-column">

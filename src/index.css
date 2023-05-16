@@ -68,14 +68,22 @@ nav {
   width: 100%;
 }
 
-.order-number{
-  font-weight: 200;
-  height: 60vh;
-}
-
 .pre-order{
   font-weight: 200;
   height: 60vh;
+  animation-name: apertura;
+  animation-duration: 1s;
+  animation-direction: normal;
+  animation-timing-function: ease-in-out;
+}
+
+.order-number{
+  font-weight: 200;
+  height: 60vh;
+   animation-name: close;
+  animation-duration: 1s;
+  animation-direction: reverse;
+  animation-timing-function: ease-in;
 }
 
 h4{
@@ -102,7 +110,7 @@ h4{
 /*CART */
 
 .cartContainer{
-  height: 53vh;
+  height: fit-content;
 }
 
 .empty-cart-container{
@@ -138,6 +146,19 @@ h4{
 
 .about-us{
   height: max-content;
+}
+
+.about{
+  color:#3D3D3D;
+  margin: 30px 30px 0 0;
+}
+
+h3.about {
+  font-weight: 400;
+}
+
+p.about {
+  font-weight: 300;
 }
 
 /* CONTACT */
@@ -192,6 +213,24 @@ hr{
   border: 1.5px solid #3D3D3D;
 }
 
+
+@keyframes apertura {
+  from {
+    transform: translateY(20vw);
+  }
+  to {
+    transform: translateY(0%);
+  }
+}
+
+@keyframes close {
+  from {
+    transform: translateY(0%);
+  }
+  to {
+    transform: translateY(20%);
+  }
+}
 /* MEDIA QUERIES */ 
 
 /* @media (min-width: 750px) {
@@ -201,39 +240,48 @@ hr{
 } */
 
 @media (max-width: 768px) { 
+  
   .card {
-  width: 100%;
+    width: 100%;
   }
-
+  
   .product-container{
     flex-direction: column;
   }
-
+  
+  
+  .description, .delete, .quantity, .price {
+    margin-bottom: 5px;
+  }
+  
+  .buttons-container{
+    flex-direction: column;
+    width: 50%;
+  }
+  
+}
+@media (max-width: 991px){
+  a.cart{
+    display: none;
+  }
+  
+  .cartContainer{
+    height: fit-content;
+  }
+  
+  .about-us-container{
+    height: fit-content;
+  }
+  
+  .footer-item {
+    text-align: center;
+  }
+  
   .cart-container{
     flex-direction: column;
     width: 100%;
     align-items: start;
   }
-
-  .description, .delete, .quantity, .price {
-    margin-bottom: 5px;
-  }
-
-  .buttons-container{
-  flex-direction: column;
-  width: 50%;
-  }
-  
-  }
-@media (max-width: 991px){
-  a.cart{
-    display: none;
-  }
-
-  .footer-item {
-    text-align: center;
-  }
-
 }  
 
 @media (min-width: 769px) { 

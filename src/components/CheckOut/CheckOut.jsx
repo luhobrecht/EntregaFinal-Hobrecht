@@ -40,7 +40,7 @@ export const CheckOut = () => {
   if (loading) {
     return (
       <div className="pre-order"> 
-        <h4 className="alert alert-secondary text-center ">⚠️ Tu pedido está en construcción... ⚠️</h4>
+          <h4 className="alert alert-secondary text-center ">⚠️ Tu pedido está en construcción... ⚠️</h4>
       </div>
     )
   }

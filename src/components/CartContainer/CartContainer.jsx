@@ -40,7 +40,7 @@ export const CartContainer = (selection) => {
         </div>
         :
         <div className="empty-cart-container container d-flex flex-column text-center">
-            <p className="mt-5 alert alert-warning">¡El carrito de compras está vacío!</p>
+            <p className="mt-5 alert alert-warning">¡No hay productos en el carrito!</p>
             <Link to='/' className="btn btn-dark text-decoration-none w-20 align-self-end"> Seguir comprando </Link>
         </div>
         }
