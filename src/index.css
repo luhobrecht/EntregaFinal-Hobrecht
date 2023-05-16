@@ -101,8 +101,12 @@ h4{
 
 /*CART */
 
+.cartContainer{
+  height: 53vh;
+}
+
 .empty-cart-container{
-  height: 60vh;
+  height: 59vh;
 }
 
 .total-container{

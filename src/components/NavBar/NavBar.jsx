@@ -23,9 +23,9 @@ export const NavBar = () => {
             <NavLink to="/about-us"className="nav-link text-decoration-none me-4" id='navbar-items'>Sobre Nosotros</NavLink>
           </Nav>
         </Navbar.Collapse>
-            <Link to='/cart' className="text-decoration-none cart">
-              <CartWidget />
-            </Link>
+        <Link to='/cart' className="text-decoration-none cart">
+          <CartWidget />
+        </Link>
     </Navbar>
   )
 };

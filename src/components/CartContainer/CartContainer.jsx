@@ -8,19 +8,18 @@ export const CartContainer = (selection) => {
     useEffect(() => {
         handleTotal();
     }, [cartList]);
-    console.log(cartList)
-    console.log(selection)
+
 
     return (
         <>
         { (cartList.length !== 0) 
         ?
-        <div className="">
+        <div className="cartContainer">
             <div className="cart-list m-5 align-items-center d-flex flex-column">
                 {cartList.map (product => (
                     <div key={product.id} className="cart-container alert alert-primary w-100 p-4 d-flex justify-content-around align-items-center">
                                     <div className="description">{product.description}</div>
-                                    <div className="color">{product.color}</div>
+                                    <div className="color">{product.color.toUpperCase()}</div>
                                     <div className="price">Precio por unidad: {product.price}€ </div>
                                     <div className="quantity">Cantidad: {product.quantity}</div>
                                     <button className="delete btn btn-outline-secondary" onClick={() => deleteItem(product.id)}> Eliminar productos</button>                  
