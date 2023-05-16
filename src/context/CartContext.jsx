@@ -9,20 +9,25 @@ export const CartContextProvider = ({children}) => {
     const [cartList, setCartList] = useState([]);
     const [total, setTotal] = useState(0);
 
-    const addToCart = (newProduct) => {
+    const addToCart = ( newProduct ) => {
         const productIndex = cartList.findIndex((product) => product.id === newProduct.id);
-      
-        if (productIndex === -1) {
-          setCartList([
-            ...cartList,
-            { ...newProduct, selection: { ...newProduct.selection } } // Almacenar la selección en el objeto del producto
+        const existingProductAndColor = cartList.find((product) => product.id === newProduct.id && product.color === newProduct.selection.color);   
+        
+        if (productIndex == -1 || !existingProductAndColor ) {
+            const { selection, ...product } = newProduct;
+            setCartList([
+                ...cartList,
+            {
+                ...product,
+                color: newProduct.selection.color,
+                img: newProduct.selection.img,
+            }
           ]);
         } else {
-          cartList[productIndex].quantity += newProduct.quantity;
-          cartList[productIndex].selection = { ...newProduct.selection }; // Actualizar la selección del producto existente en el carrito
-          setCartList([...cartList]);
+            cartList[productIndex].quantity += newProduct.quantity;
+            setCartList([...cartList]);
         }
-      };
+    };
 
     const clearCartList = () => {
         setCartList([])

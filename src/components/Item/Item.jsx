@@ -1,7 +1,7 @@
 import { memo } from 'react';
 import { Link } from 'react-router-dom';
 
-export const Item = memo(({product: {id, description, price, img}, selection}) => {
+export const Item = memo(({product: {id, description, price, img, color}, selection}) => {
   console.log(selection) 
   return (
           <div key={id} className="card text-center mb-2 mt-2">

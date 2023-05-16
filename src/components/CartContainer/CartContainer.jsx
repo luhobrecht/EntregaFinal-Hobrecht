@@ -23,7 +23,6 @@ export const CartContainer = (selection) => {
                                     <div className="color">{product.color}</div>
                                     <div className="price">Precio por unidad: {product.price}€ </div>
                                     <div className="quantity">Cantidad: {product.quantity}</div>
-                                    <img className="img" src={product.img} />
                                     <button className="delete btn btn-outline-secondary" onClick={() => deleteItem(product.id)}> Eliminar productos</button>                  
                     </div>
                 ))}

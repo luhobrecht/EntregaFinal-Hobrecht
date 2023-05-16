@@ -7,8 +7,8 @@ import { ColorSelector } from "../ColorSelector/ColorSelector";
 
 export const ItemDetail = ({product}) => { 
   const [isItem, setIsItem] = useState(false)
-  const {addToCart, cartList} = useCartContext();
-  const [selection, setSelection ] = useState({
+  const {addToCart} = useCartContext();
+  const [selection, setSelection] = useState({
     color: product.color[0],
     img: product.img[0]
   });
@@ -28,9 +28,8 @@ export const ItemDetail = ({product}) => {
   const onAdd = (quantity) => {
     addToCart ({...product, quantity, selection });
     setIsItem(true);
-    console.log(selection)
-    console.log(cartList)
   }
+  
   return (
       <>
       <div className="d-flex flex-column align-items-center mt-5">
