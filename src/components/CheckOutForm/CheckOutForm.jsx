@@ -32,45 +32,51 @@ export const CheckOutForm = ({createOrder}) => {
         <h5 className="mt-5 mb-5 fs-3">Ingrese sus datos:</h5>
         <form onSubmit={handleOnSubmit} className="d-flex align-items-center">
           <div className="mb-3 ms-5 w-100">
-            <label className="form-label">Nombre</label>
+            <label className="form-label" id='form-label-checkout'>Nombre</label>
             <input 
               type="text" 
-              className="form-control" 
+              className="form-control"
+              id='form-control-checkout' 
               onChange={handleOnChange} 
               value={userData.name}
               name="name" 
-              aria-describedby="name" 
+              aria-describedby="nameHelp" 
               required
             />
-            <hr className="mt-0"></hr>
-            <label className="form-label">Número telefónico</label>
+            <hr className="mt-0 mb-0"></hr>
+            <div id="nameHelp" className="form-text mb-4">Ingresa tu nombre</div>
+            <label className="form-label" id='form-label-checkout'>Teléfono</label>
             <input 
               type="number" 
               className="form-control" 
+              id='form-control-checkout'
               onChange={handleOnChange}
               value={userData.phone}
               name="phone" 
-              aria-describedby="number" 
+              aria-describedby="phoneHelp" 
               maxLength="10"
               required
             />
-            <hr className="mt-0"></hr>
+            <hr className="mt-0 mb-0"></hr>
+            <div id="phoneHelp" className="form-text mb-4">Ingresa tu número telefónico</div>
             {
              (userData.email !== userData.emailConfirmation) &&
               <p className="text-danger">Los correos no coinciden</p>
             }
-            <label className="form-label">Correo electrónico</label>
+            <label className="form-label" id='form-label-checkout'>Correo electrónico</label>
             <input 
               type="email" 
               className="form-control" 
+              id='form-control-checkout'
               onChange={handleOnChange}
               value={userData.email}
               name="email" 
-              aria-describedby="email" 
+              aria-describedby="emailHelp" 
               required
             />
-            <hr className="mt-0"></hr>
-            <label for="emailConfirmation" className="form-label">Repita su correo electrónico</label>
+            <hr className="mt-0 mb-0"></hr>
+            <div id="emailHelp" className="form-text mb-4">Ingresa tu correo electrónico</div>
+            <label className="form-label" id='form-label-checkout'>Repita su correo electrónico</label>
             {
              (userData.email !== userData.emailConfirmation) &&
               <p className="text-danger">Los correos no coinciden</p>
@@ -78,13 +84,13 @@ export const CheckOutForm = ({createOrder}) => {
             <input 
               type="email" 
               className="form-control" 
+              id='form-control-checkout'
               onChange={handleOnChange}
               value={userData.emailConfirmation}
-              name="emailConfirmation" 
-              aria-describedby="email-confirmation"
+              name="emailConfirmation"
               required 
             />
-            <hr className="mt-0"></hr>
+            <hr className="mt-0 "></hr>
             <Link to='/cart' className='btn btn-dark mt-4 ms-2 me-2'>Atrás</Link>
             <button className="btn btn-primary mt-4">Finalizar</button>
           </div>

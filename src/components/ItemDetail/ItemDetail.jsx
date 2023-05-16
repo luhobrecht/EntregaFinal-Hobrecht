@@ -2,23 +2,17 @@ import { Link } from "react-router-dom";
 import { useCartContext } from "../../context/CartContext";
 import { Item } from "../Item/Item";
 import { ItemCount } from "../ItemCount/ItemCount";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { ColorSelector } from "../ColorSelector/ColorSelector";
 
 export const ItemDetail = ({product}) => { 
   const [isItem, setIsItem] = useState(false)
-  const {addToCart, handleCartWidget} = useCartContext();
-  const [selection, setSelection, ] = useState({
+  const {addToCart, cartList} = useCartContext();
+  const [selection, setSelection ] = useState({
     color: product.color[0],
     img: product.img[0]
   });
-    
-  const onAdd = ( quantity ) => {
-    addToCart ({...product, quantity})
-    setIsItem(true);
-  }
   
-
   const optionSelected= (event) => {
     const colorSelected = event.target.value;
     const colorIndex = product.color.indexOf(colorSelected);
@@ -30,14 +24,19 @@ export const ItemDetail = ({product}) => {
         });
     }
   }
- 
-  useEffect(() => {
-    handleCartWidget()
 
-  }, [onAdd])
-
+  const onAdd = (quantity) => {
+    addToCart ({...product, quantity, selection });
+    setIsItem(true);
+    console.log(selection)
+    console.log(cartList)
+  }
   return (
+      <>
       <div className="d-flex flex-column align-items-center mt-5">
+        {
+          
+        }
         <Item product={product} selection={selection}/>
             <div className="card card-footer p-2 ">
             <ColorSelector selection={selection} optionSelected={optionSelected} product={product} />
@@ -46,6 +45,7 @@ export const ItemDetail = ({product}) => {
         {
           (isItem) ?
             <>
+              <p className='text-center message alert alert-success'>¡Se agregó al carrito!</p>
               <Link to='/' className='btn btn-dark mb-1'>Seguir comprando</Link>
               <Link to='/cart' className='btn btn-success mb-1'>Terminar compra</Link>
             </>
@@ -54,6 +54,7 @@ export const ItemDetail = ({product}) => {
         }
         </div>
       </div>
+      </>
   )
 };
     

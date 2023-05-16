@@ -1,10 +1,8 @@
 #root {
   background-image: url(/assets/background-geeks.png);
-  background-repeat: no-repeat;
-  background-size: cover;
-  background-position: center;
-  height: 100vh;
-  width: 100vw;
+  background-repeat: repeat;
+  background-size: 100%;
+  background-attachment: scroll;
 }
 
 /* NAVBAR */
@@ -72,7 +70,12 @@ nav {
 
 .order-number{
   font-weight: 200;
-  height: 53vh;
+  height: 60vh;
+}
+
+.pre-order{
+  font-weight: 200;
+  height: 60vh;
 }
 
 h4{
@@ -98,6 +101,10 @@ h4{
 
 /*CART */
 
+.empty-cart-container{
+  height: 60vh;
+}
+
 .total-container{
   font-weight: 200;
   padding: 0.5em 1em 0 1em
@@ -111,7 +118,29 @@ h4{
   font-weight: 700;
 }
 
+.message{
+  font-weight: 300;
+}
 
+.product-error{
+  height: 60vh;
+}
+
+/* ABOUT US */
+
+.about-us-container{
+  height: 60vh;
+}
+
+.about-us{
+  height: max-content;
+}
+
+/* CONTACT */
+
+.contact{
+  font-size: 20px;
+}
 
 /* FOOTER */
 
@@ -141,12 +170,12 @@ footer h5{
 
 /* CHECKOUT */
 
-.form-control{
+#form-control-checkout{
   border: none;
   background-color: #FFFFF7;
 }
 
-.form-label{
+#form-label-checkout{
   color: #3D3D3D;
   font-weight: light;
 }
@@ -186,6 +215,10 @@ hr{
     margin-bottom: 5px;
   }
 
+  .buttons-container{
+  flex-direction: column;
+  width: 50%;
+  }
   
   }
 @media (max-width: 991px){

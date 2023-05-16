@@ -17,14 +17,14 @@ function GeeksApp() {
     <Router>
       <NavBar /> 
       <Routes>
-      <Route path='/contact' element={<Contact /> } />
-      <Route path='/about-us' element={<AboutUs /> } />
       <Route path='/' element={<ItemListContainer /> } />
       <Route path='/category/:cid' element={<ItemListContainer /> } />
       <Route path='/item/:pid' element={<ItemDetailContainer />} />
       <Route path='*' element={ <Navigate to='/' /> }/>
       <Route path='/cart' element={ <CartContainer />} />
       <Route path='/checkout' element={ <CheckOut />} />
+      <Route path='/contact' element={<Contact /> } />
+      <Route path='/about-us' element={<AboutUs /> } />
       </Routes>
       <Footer />
     </Router>

@@ -1,15 +1,15 @@
 import { Link } from "react-router-dom";
 import { useCartContext } from "../../context/CartContext"
 import { useEffect } from "react";
-import { addDoc, collection, getFirestore } from "firebase/firestore";
 
-export const CartContainer = () => {
+export const CartContainer = (selection) => {
     const {cartList,  clearCartList, deleteItem, total, handleTotal} = useCartContext();
 
     useEffect(() => {
         handleTotal();
     }, [cartList]);
-    
+    console.log(cartList)
+    console.log(selection)
 
     return (
         <>
@@ -19,10 +19,11 @@ export const CartContainer = () => {
             <div className="cart-list m-5 align-items-center d-flex flex-column">
                 {cartList.map (product => (
                     <div key={product.id} className="cart-container alert alert-primary w-100 p-4 d-flex justify-content-around align-items-center">
-                            {/* <img className="product-image w-50 align-self-center m-2" src={product.img[0]} alt="imagen"/> */}
                                     <div className="description">{product.description}</div>
+                                    <div className="color">{product.color}</div>
                                     <div className="price">Precio por unidad: {product.price}€ </div>
                                     <div className="quantity">Cantidad: {product.quantity}</div>
+                                    <img className="img" src={product.img} />
                                     <button className="delete btn btn-outline-secondary" onClick={() => deleteItem(product.id)}> Eliminar productos</button>                  
                     </div>
                 ))}
@@ -33,20 +34,16 @@ export const CartContainer = () => {
                     <p className="">€{ total }</p>
                 </div> 
             </div>
-            <div className='container d-flex justify-content-center'>    
-                <Link to='/' className="btn btn-outline-dark text-decoration-none ms-5"> Seguir comprando </Link>
-                <Link to='/' onClick={clearCartList} className="btn btn-outline-danger ms-5">Vaciar Carrito</Link>
-                <Link to='/checkout' className="btn btn-success ms-5">Finalizar Compra</Link>      
+            <div className='container d-flex justify-content-evenly buttons-container'>    
+                <Link to='/' className="btn btn-outline-dark text-decoration-none mb-1"> Seguir comprando </Link>
+                <Link to='/' onClick={clearCartList} className="btn btn-outline-danger mb-1">Vaciar Carrito</Link>
+                <Link to='/checkout' className="btn btn-success mb-1">Finalizar Compra</Link>      
             </div>
         </div>
         :
-        <div className="container text-center">
-            <p className="m-5 alert ">
-            ¡El carrito de compras está vacío!   
-            </p>
-            <div className="d-flex justify-content-end">
-                <Link to='/' className="btn btn-dark text-decoration-none ms-5 "> Seguir comprando </Link>
-            </div>
+        <div className="empty-cart-container container d-flex flex-column text-center">
+            <p className="mt-5 alert alert-warning">¡El carrito de compras está vacío!</p>
+            <Link to='/' className="btn btn-dark text-decoration-none w-20 align-self-end"> Seguir comprando </Link>
         </div>
         }
         </>

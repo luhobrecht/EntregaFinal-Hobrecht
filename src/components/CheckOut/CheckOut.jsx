@@ -14,8 +14,10 @@ export const CheckOut = () => {
     
     const order = {
       buyer: userData,
-      items: cartList.map(({description, id, price, quantity}) => ({description, id, price, quantity})),
-      total: total
+      items: cartList.map(({description, id, price, quantity, color}) => ({description, id, price, quantity, color})),
+      total: total,
+      date: new Date(),
+      state: 'generada'
     };
     
     console.log(order)
@@ -36,7 +38,11 @@ export const CheckOut = () => {
     };
 
   if (loading) {
-    return <h4 className="alert alert-secondary text-center ">⚠️ Tu pedido está en construcción... ⚠️</h4>
+    return (
+      <div className="pre-order"> 
+        <h4 className="alert alert-secondary text-center ">⚠️ Tu pedido está en construcción... ⚠️</h4>
+      </div>
+    )
   }
   if (orderNumber) {
     return (
