@@ -1,7 +1,7 @@
 import { useCartContext } from "../../context/CartContext";
 
-export const CartWidget = ({}) => {
 
+export const CartWidget = ({}) => {
   const {handleCartWidget} = useCartContext();
  
   return (

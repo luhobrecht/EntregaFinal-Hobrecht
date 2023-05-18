@@ -1,11 +1,9 @@
 import { createContext, useContext, useState } from "react";
 
 const CartContext = createContext([]);
-
 export const useCartContext = () => useContext( CartContext );
 
 export const CartContextProvider = ({children}) => {
-    
     const [cartList, setCartList] = useState([]);
     const [total, setTotal] = useState(0);
 
@@ -22,7 +20,7 @@ export const CartContextProvider = ({children}) => {
                 color: newProduct.selection.color,
                 img: newProduct.selection.img,
             }
-          ]);
+            ]);
         } else {
             cartList[productIndex].quantity += newProduct.quantity;
             setCartList([...cartList]);
@@ -57,5 +55,5 @@ export const CartContextProvider = ({children}) => {
         }}>
             {children}
         </CartContext.Provider>
-  )
-}
+    )
+};

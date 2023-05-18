@@ -5,6 +5,7 @@ import { ItemCount } from "../ItemCount/ItemCount";
 import { useState } from "react";
 import { ColorSelector } from "../ColorSelector/ColorSelector";
 
+
 export const ItemDetail = ({product}) => { 
   const [isItem, setIsItem] = useState(false)
   const {addToCart} = useCartContext();
@@ -21,9 +22,9 @@ export const ItemDetail = ({product}) => {
         setSelection({
             color: colorSelected,
             img: imageUrl
-        });
+      })
     }
-  }
+  };
 
   const onAdd = (quantity) => {
     addToCart ({...product, quantity, selection });
@@ -32,27 +33,24 @@ export const ItemDetail = ({product}) => {
   
   return (
       <>
-      <div className="d-flex flex-column align-items-center mt-5">
-        {
-          
-        }
-        <Item product={product} selection={selection}/>
+        <div className="d-flex flex-column align-items-center mt-5">
+          <Item product={product} selection={selection}/>
             <div className="card card-footer p-2 ">
-            <ColorSelector selection={selection} optionSelected={optionSelected} product={product} />
+              <ColorSelector selection={selection} optionSelected={optionSelected} product={product} />
             </div>
-        <div className='card card-footer  p-3 mt-2'>
-        {
-          (isItem) ?
-            <>
-              <p className='text-center message alert alert-success'>¡Se agregó al carrito!</p>
-              <Link to='/' className='btn btn-dark mb-1'>Seguir comprando</Link>
-              <Link to='/cart' className='btn btn-success mb-1'>Terminar compra</Link>
-            </>
-          :
-            <ItemCount stock={ product.stock } onAdd={ onAdd } />
-        }
+          <div className='card card-footer  p-3 mt-2'>
+          {
+            (isItem) ?
+              <>
+                <p className='text-center message alert alert-success'>¡Se agregó al carrito!</p>
+                <Link to='/' className='btn btn-dark mb-1'>Seguir comprando</Link>
+                <Link to='/cart' className='btn btn-success mb-1'>Terminar compra</Link>
+              </>
+            :
+              <ItemCount stock={ product.stock } onAdd={ onAdd } />
+          }
+          </div>
         </div>
-      </div>
       </>
   )
 };

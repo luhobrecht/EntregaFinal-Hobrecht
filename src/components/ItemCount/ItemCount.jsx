@@ -8,7 +8,7 @@ export const ItemCount = ({stock, initial = 0, onAdd}) => {
       <>
         <div className='d-flex justify-content-center m-1'>
           {
-            (counter === 0) 
+            ( counter === 0 ) 
             ?
               <button className='btn decrement btn-secondary disabled' onClick={ decrement }>-</button>
             :
@@ -16,7 +16,7 @@ export const ItemCount = ({stock, initial = 0, onAdd}) => {
           }
           <p className='m-2'>{ counter }</p>
           {
-            (stock === 0 ) 
+            ( stock === 0 ) 
             ?
               <button className='btn increment btn btn-secondary disabled'>+</button>
             :
@@ -25,7 +25,7 @@ export const ItemCount = ({stock, initial = 0, onAdd}) => {
         </div>
         <hr/>
           {
-            (counter === 0 || stock === 0)
+            ( counter === 0 || stock === 0 )
             ?
               <button to='/cart' className='btn btn-primary mb-1 disabled'>Agregar al carrito</button>
             :

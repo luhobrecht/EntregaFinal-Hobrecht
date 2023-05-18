@@ -8,10 +8,8 @@ import { Loading } from "../Loading/Loading";
 
 
 export const ItemListContainer = () => {
-    
   const [products, setProducts] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
-
   const { cid } = useParams();
   
   useEffect(()=>{
@@ -19,21 +17,23 @@ export const ItemListContainer = () => {
     const itemCollection = collection(db, 'products');
     
       if( !cid ) {     
-            getDocs(itemCollection)
-            .then(res => setProducts( res.docs.map(product => ({ id: product.id, ...product.data() }))))
-            .catch( error => console.log( error ))
-            .finally(() => setIsLoading( false ));   
-
+        const activeCollection = query(
+          itemCollection,
+          where('isActive', '==', true)
+        )
+          getDocs(activeCollection)
+          .then(res => setProducts( res.docs.map(product => ({ id: product.id, ...product.data() }))))
+          .catch( error => console.log( error ))
+          .finally(() => setIsLoading( false ));   
         } else {
-            const itemCollectionByCategory = query(
-                    itemCollection,
-                    where('category', '==', cid )
-            )
-
-            getDocs(itemCollectionByCategory)
-            .then( res => setProducts( res.docs.map(product => ({ id: product.id, ...product.data()}))))   
-            .catch( error => console.log( error ) )
-            .finally(() => setIsLoading( false ))   
+          const itemCollectionByCategory = query(
+                  itemCollection,
+                  where('category', '==', cid )
+        )
+          getDocs(itemCollectionByCategory)
+          .then( res => setProducts( res.docs.map(product => ({ id: product.id, ...product.data()}))))   
+          .catch( error => console.log( error ) )
+          .finally(() => setIsLoading( false ))   
         }
       }, [cid])
 
@@ -41,26 +41,24 @@ export const ItemListContainer = () => {
       <div>
         <input className='search-bar mt-5 mb-3 p-3 text-start'  type='text' placeholder='¿Qué estás buscando?' value={filterState} onChange={handleFilterChange} />
         <div className="d-flex flex-wrap item-list">
-          <>
-            <ItemList 
-              products = {
-              filterState === '' ?
-              products
-              :
-              products.filter( product => product.description.toLowerCase().includes(filterState.toLowerCase()))
-              }
-            />
-          </>
+          <ItemList 
+            products = {
+            filterState === '' ?
+            products
+            :
+            products.filter( product => product.description.toLowerCase().includes(filterState.toLowerCase()))
+          }
+          />
         </div>
     </div>
-  ) 
+  );
   return (
       <div className="global">
         <Carousel />
         <div className='global p-5 pt-1 m-5 mt-1'>
           {
             isLoading ?
-              <Loading />
+            <Loading />
           :
             <Filter >
               { handleProductFiltered }
@@ -69,4 +67,4 @@ export const ItemListContainer = () => {
         </div>
       </div>
   )
-}
+};

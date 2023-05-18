@@ -20,16 +20,14 @@ export const ItemDetailContainer = () => {
       .finally(()=> setIsLoading(false))   
   }, [])
 
-
   return (
     <>     
-    {(isLoading) 
+      {(isLoading) 
       ? 
-      <Loading />
+        <Loading />
       :  
-      <>
-        {
-          (product.description === undefined)
+        <>
+          {(product.description === undefined)
           ?
             (
             <div className="container product-error d-flex flex-column">
@@ -38,10 +36,15 @@ export const ItemDetailContainer = () => {
             </div>  
             )
           :
+          <>
             <ItemDetail product={product}/>
-        }
-      </>
-    }
+            <div className="container d-flex flex-row justify-content-between mt-5">
+              <NavLink to="/" className="btn btn-dark mt-3 w-20 align-self-end">Volver al inicio</NavLink>
+            </div>
+          </>
+          }
+        </>
+      }
     </>  
   )
 };
