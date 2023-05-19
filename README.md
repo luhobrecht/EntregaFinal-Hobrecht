@@ -61,6 +61,7 @@
 - *Si presiona el botón de "Terminar la compra", lo guiará a completar un formulario para validar sus datos. Ésta alternativa estará disponible mientras no haya un login, que aún no ha sido implementado en el proyecto*
 <img src="/public/assets/screenshots/9.png" style="width: 100%"/>
 <img src="/public/assets/screenshots/10.png" style="width: 100%"/>
+<img src="/public/assets/screenshots/10a.png" style="width: 100%"/>
 
 **CHECKOUT**
 
