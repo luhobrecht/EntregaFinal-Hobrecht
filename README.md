@@ -9,7 +9,7 @@
 * *ReactJS*
 * *Javascript*
 * DDBB: *Firebase | FireStore*
- **Librerías:**
+# **Librerías:**
 * Styling: *Bootstrap & CSS*
 * Router: *React Router DOM* 
 
@@ -17,44 +17,48 @@
 
 **INICIO / HOME**
 
-- *Empezando por el inicio o home. En ésta vista hay una barra de navegación con el logo de marca que al presionarlo cumple la función de devolvernos al home; opción de filtrado por categorías o ver todos los productos y el ícono del carrito de compras que al presionarlo nos lleva a la vista del mismo.*
+- *Empezando por el inicio o home:* 
+    *Barra de navegación con el logo de la marca ---> al presionarlo cumple la función de devolvernos al home;*
+    *Ópción de filtrado por categorías o ver todos los productos* 
+    *Ícono del carrito de compras ---> al presionarlo nos lleva a la vista del mismo.*
 <img src="/public/assets/screenshots/1.png" style="width: 100%"/>
 
-- *El funcionamiento de la barra de búsqueda que realiza el filtrado de productos, según nombre de producto.*
+- *También podemos hacer filtrado de productos a través de la barra de búsqueda.*
 <img src="/public/assets/screenshots/1a.png" style="width: 100%"/>
 <img src="/public/assets/screenshots/1b.png" style="width: 100%"/>
 
-- *Siguiendo por el recorrido, acá podemos ver el funcionamiento del filtrado por categorías, disponible en la barra de navegación.*
+- *Muestra del funcionamiento del filtrado por categorías, disponible en la barra de navegación.*
 <img src="/public/assets/screenshots/2.png" style="width: 100%"/>
 
 **CARRITO DE COMPRAS**
-- *Al ingresar al ícono del carrito, si no se encuentran productos, nos desplegara un mensaje avisandonos de que esta vacío.*
+
+- *Al ingresar al carrito, si no se han agregado productos, nos desplegará el mensaje avisándonos de que esta vacío.*
 <img src="/public/assets/screenshots/2a.png" style="width: 100%"/>
 
 **DETALLE DE PRODUCTO**
 
-- *Si ingresamos a un producto específico nos aparecerá su detalle, y el contador que da la funcionalidad para poder agregar la cantidad al carrito. También tenemos la funcionalidad de volver hacia la vista principal con el botón "Volver al inicio".*
+- *Si pulsamos en un producto específico nos lleva a su detalle, y el contador que da la funcionalidad para poder agregar cantidad de unidades al carrito. También tenemos la funcionalidad de volver hacia el home con el botón "Volver al inicio".*
 <img src="/public/assets/screenshots/3.png" style="width: 100%"/>
 
-- *En el detalle de producto también tenemos un selector de color que despliega los colores correspondientes y cambia la imagen del producto según su color seleccionado.*
+- *En el detalle de producto el cliente puede elegir el color del producto mediante el selector de color que despliega los colores disponibles para cada producto y cambia la imagen del producto según su color correspondiente.*
 <img src="/public/assets/screenshots/4.png" style="width: 100%"/>
 <img src="/public/assets/screenshots/5.png" style="width: 100%"/>
 
-- *El botón de agregar al carrito permanece deshabilitado hasta que el contador tenga un valor mayor a 0, es decir, que se esten sumando unidades.*
+- *El botón de agregar al carrito permanece deshabilitado hasta que el cliente interactúe con el contador y agregue unidades. Volverá a deshabilitarse si el contador está posicionado en el 0.*
 <img src="/public/assets/screenshots/6.png" style="width: 100%"/>
 
-- *Una vez presionado el botón de agregar al carrito, se modifica la vista para tener la opción de "seguir comprando" o finalmente "terminar la compra".*
+- *Una vez presionado el botón de "Agregar al carrito", se modifica la vista para que el cliente tenga la opción de "Seguir comprando" o "Terminar la compra".*
 <img src="/public/assets/screenshots/7.png" style="width: 100%"/>
 
 **CARRITO DE COMPRAS**
 
-- *Una vez presionado "Terminar la compra", nos lleva a la vista del carrito, con el detalle de cada producto agregado. En caso de ser el mismo producto, los agrupara sumandole cantidad. En caso de ser el mismo producto, pero distinto color, también hará la distinción de producto; y agregara cantidad según color. Se despliega el total de la compra y tenemos un botón para cada funcionalidad correspondiente: continuar la compra, vacíar el carrito, eliminar por producto o finalmente confirmar terminar la compra.*
+- *Si el cliente presiona el botón de "Terminar la compra", lo lleva a la vista del carrito, donde encontrará el detalle de cada producto agregado.También podrá ver el total de la compra y podrá seleccionar si quiere eliminar por producto, continuar con su compra (redirigiendolo al home), vaciar el carrito, o finalizar la compra.*
 <img src="/public/assets/screenshots/8.png" style="width: 100%"/>
 <img src="/public/assets/screenshots/8a.png" style="width: 100%"/>
 
 **FORMULARIO PARA VALIDAR DATOS DE CLIENTE**
 
-- *Si presionamos el botón de "Terminar la compra", nos guiará a la vista del formulario para validar los datos del cliente. Aún no hay un login implementado por lo cual, es esencial que completen estos datos, por ende son obligatorios para continuar la compra.*
+- *Si presiona el botón de "Terminar la compra", lo guiará a completar un formulario para validar sus datos. Ésta alternativa estará disponible mientras no haya un login, que aún no ha sido implementado en el proyecto*
 <img src="/public/assets/screenshots/9.png" style="width: 100%"/>
 <img src="/public/assets/screenshots/10.png" style="width: 100%"/>
 
