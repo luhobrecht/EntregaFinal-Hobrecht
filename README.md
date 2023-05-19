@@ -9,7 +9,7 @@
 * *ReactJS*
 * *Javascript*
 * DDBB: *Firebase | FireStore*
-# **Librerías:**
+## **Librerías:**
 * Styling: *Bootstrap & CSS*
 * Router: *React Router DOM* 
 
