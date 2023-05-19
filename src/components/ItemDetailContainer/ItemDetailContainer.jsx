@@ -37,10 +37,10 @@ export const ItemDetailContainer = () => {
             )
           :
           <>
-            <ItemDetail product={product}/>
-            <div className="container d-flex flex-row justify-content-between mt-5">
-              <NavLink to="/" className="btn btn-dark mt-3 w-20 align-self-end">Volver al inicio</NavLink>
+            <div className="container d-flex justify-content-start mt-1">
+              <NavLink to="/" className="btn btn-secondary mt-3 w-20 ">Volver al inicio</NavLink>
             </div>
+            <ItemDetail product={product}/>
           </>
           }
         </>

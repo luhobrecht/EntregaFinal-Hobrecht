@@ -81,7 +81,7 @@ export const CheckOutForm = ({createOrder}) => {
             {
               (userData.email !== userData.emailConfirmation) ?
             <>
-            <p className="text-danger">Los correos no coinciden</p> 
+            <p className="text-danger">El correo electrónico no coincide.</p> 
             <Link to='/cart' className='btn btn-dark mt-4 ms-2 me-2'>Atrás</Link>
             <button className="btn btn-primary mt-4 disabled">Finalizar</button>
             </>

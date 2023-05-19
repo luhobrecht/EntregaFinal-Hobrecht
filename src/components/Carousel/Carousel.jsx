@@ -8,10 +8,10 @@ export const Carousel = () => {
       </div>
       <div className="carousel-inner">
         <div className="carousel-item active">
-          <img src="/assets/carousel/1.svg" className="h-100 w-100" alt="..."/>
+          <img src="/assets/carousel/2.svg" className="h-100 w-100" alt="..."/>
         </div>
         <div className="carousel-item">
-          <img src="/assets/carousel/2.svg" className="h-100 w-100" alt="..."/>
+          <img src="/assets/carousel/1.svg" className="h-100 w-100" alt="..."/>
         </div>
         <div className="carousel-item">
           <img src="/assets/carousel/bienvenidos.gif" className="h-100 w-100" alt="..."/>
