@@ -18,9 +18,9 @@
 **INICIO / HOME**
 
 - *Empezando por el inicio o home:* 
-    *Barra de navegación con el logo de la marca ---> al presionarlo cumple la función de devolvernos al home;*
-    *Ópción de filtrado por categorías o ver todos los productos* 
-    *Ícono del carrito de compras ---> al presionarlo nos lleva a la vista del mismo.*
+    - *Barra de navegación con el logo de la marca ---> al presionarlo cumple la función de devolvernos al home;*
+    - *Ópción de filtrado por categorías o ver todos los productos* 
+    - *Ícono del carrito de compras ---> al presionarlo nos lleva a la vista del mismo.*
 <img src="/public/assets/screenshots/1.png" style="width: 100%"/>
 
 - *También podemos hacer filtrado de productos a través de la barra de búsqueda.*
