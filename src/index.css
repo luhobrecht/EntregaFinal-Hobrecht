@@ -96,7 +96,7 @@ h4{
 /*CART */
 
 .cartContainer{
-  height: fit-content;
+  height: 55vh;
 }
 
 .empty-cart-container{
