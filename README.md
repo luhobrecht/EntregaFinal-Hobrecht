@@ -1,4 +1,5 @@
 # Proyecto desarrollado para el curso de React de Coderhouse 📝
+## Link al proyecto: https://g3eks.netlify.app
 
 # Geeks 🎮 
 <img src="/public/assets/geeks.svg" alt="Geeks logo" style="width: 100%"/>
@@ -8,7 +9,8 @@
 ## 💻 Lenguajes utilizados: 
 * *ReactJS*
 * *Javascript*
-* DDBB: *Firebase | FireStore*
+## Dependencias:
+* **Firebase | FireStore**
 ## **Librerías:**
 * Styling: *Bootstrap & CSS*
 * Router: *React Router DOM* 
